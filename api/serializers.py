@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.serializers import StringRelatedField
 from .models import *
 
 class RoleSerializer(serializers.ModelSerializer):
@@ -29,6 +30,15 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
+
+    # username = serializers.SerializerMethodField('get_username')
+    # author   = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    # author = serializers.ReadOnlyField(source='author.username')
+    author = StringRelatedField()
     class Meta:
-        model = Post
-        fields = "__all__"
+            model = Post
+            fields = ('id', 'title', 'author', 'body', 'publish', 'created_at', 'updated_at', 'status')
+
+
+    # def get_username(self):
+    #     author =  self.context['request'].user
