@@ -33,9 +33,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
-    'api',  #new
-    'rest_framework', #new
-    'rest_framework_simplejwt', #new
+    
+   
     'django.contrib.admin',
    
     'django.contrib.auth',
@@ -43,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', #new
+    'rest_framework_simplejwt', #new
+    'api',  #new
    
     
    
